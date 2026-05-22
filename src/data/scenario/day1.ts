@@ -30,9 +30,19 @@ export const day1Scenes: Record<string, Scene> = {
       },
       {
         text: "교실로 먼저 이동한다",
-        nextSceneId: "classroom-hallway",
+        nextSceneId: "leave-club-for-class",
       },
     ],
+  },
+
+  "leave-club-for-class": {
+    id: "leave-club-for-class",
+    background: "club-room",
+    speaker: "heroine",
+    character: "heroine",
+    characterExpression: "default",
+    text: "선배들, 저 수업 시작할 것 같아서 먼저 가볼게요!",
+    nextSceneId: "classroom-hallway",
   },
 
   "meet-ian": {
@@ -72,7 +82,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "교실이 여기가 아닌가..?",
+    text: "1학년 교실 층이 여기가 아닌것 같은데..?",
     nextSceneId: "ian-event-1",
   },
 
@@ -82,7 +92,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "default",
-    text: "어? 하린이가 여긴 왠일이야? 교실을 잘못 찾았나본데 여긴 2학년 교실 층이라구.",
+    text: "어? 하린이가 여긴 웬일이야? 교실을 잘못 찾았나본데 여긴 2학년 교실 층이라구.",
     delayBeforeDialogue: 3000,
     nextSceneId: "heroine-fluster",
   },
@@ -93,7 +103,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "네?? (어버버) 교실을 진짜 잘못 찾은 거예요!!?",
+    text: "네?? (당황) 교실을 진짜 잘못 찾은 거예요!!?",
     nextSceneId: "classroom-choice",
   },
 
@@ -295,7 +305,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "어? 동아리방에 가방을 두고왔어! 동아리방으로 되돌아갈까?",
+    text: "어? 동아리방에 가방을 두고 왔어! 동아리방으로 되돌아갈까?",
     choices: [
       {
         text: "동아리방으로 되돌아간다",
@@ -735,7 +745,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "embarrassed",
-    text: "전교1등인게 1학년들한테도 소문이 나?...??",
+    text: "전교 1등인 게 1학년들한테도 소문이 나?...??",
     nextSceneId: "ian-school-store-hallway",
   },
 
@@ -874,7 +884,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "happy",
-    text: "헉헉 빨리 내입으로..",
+    text: "헉헉 빨리 내 입으로..",
     nextSceneId: "ian-school-store-pay",
   },
 
@@ -921,7 +931,7 @@ export const day1Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "근데 교실에서 먹으면 한입만 하는 놈들이 달려들게 뻔한데... 어디 조용한 곳 없나?",
+    text: "근데 교실에서 먹으면 한입만 하는 놈들이 달려들 게 뻔한데... 어디 조용한 곳 없나?",
     nextSceneId: "ian-school-store-rooftop-idea",
   },
 

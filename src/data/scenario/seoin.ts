@@ -345,7 +345,7 @@ export const seoinScenes: Record<string, Scene> = {
     id: "day-4-seoin-small-theater-key-info",
     background: "small_theater",
     speaker: "narrator",
-    text: "그것은 이 폐쇄된 소극장의 문 열쇠였다.",
+    text: "그것은 이 폐쇄된 소극장 문을 여는 열쇠였다.",
     nextSceneId: "day-4-seoin-small-theater-poster-found",
   },
 
@@ -365,7 +365,7 @@ export const seoinScenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: '"기억속의... 무대?" 연극부 정기공연... 정말 오래전에 했던 거네.',
+    text: '"기억 속의... 무대?" 연극부 정기공연... 정말 오래전에 했던 거네.',
     delayBeforeDialogue: 2000,
     nextSceneId: "day-4-seoin-small-theater-poster-look",
   },
@@ -395,7 +395,7 @@ export const seoinScenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "기억속의 무대... 뭔가 안타까운 마음이 드는 건 왜일까?",
+    text: "기억 속의 무대... 뭔가 안타까운 마음이 드는 건 왜일까?",
     nextSceneId: "day-4-seoin-small-theater-leave",
   },
 
@@ -413,7 +413,7 @@ export const seoinScenes: Record<string, Scene> = {
     speaker: "seoin",
     character: "seoin",
     characterExpression: "rage",
-    text: "그건 어디서 찾았니..?",
+    text: "그건 어디서 찾았니...?",
     nextSceneId: "day-4-seoin-small-theater-key-stare",
   },
 
@@ -513,7 +513,7 @@ export const seoinScenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "저 사람.. 너무 무서워.",
+    text: "저 사람... 너무 무서워.",
     nextSceneId: "day-4-seoin-small-theater-room",
   },
 

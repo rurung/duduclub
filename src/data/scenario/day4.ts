@@ -16,7 +16,7 @@ export const day4Scenes: Record<string, Scene> = {
     id: "day-4-park-chocolate-shop",
     background: "park",
     speaker: "narrator",
-    text: "등교길 공원 주변에는 발렌타인데이를 맞아 작은 초콜릿 매대가 줄지어 서 있었다.",
+    text: "등굣길 공원 주변에는 발렌타인데이를 맞아 작은 초콜릿 매대가 줄지어 서 있었다.",
     nextSceneId: "day-4-park-chocolate-harin",
   },
 
@@ -57,7 +57,7 @@ export const day4Scenes: Record<string, Scene> = {
         affection: { doha: 25 },
       },
       {
-        text: "에이..내가 누구한테 이걸 줘..",
+        text: "에이... 내가 누구한테 이걸 줘...",
         nextSceneId: "day-4-seoin-path-start",
         requiredSeenSceneId: "day-2-seoin-event-1",
       },
@@ -78,7 +78,7 @@ export const day4Scenes: Record<string, Scene> = {
     background: "ian_event_5",
     speaker: "narrator",
     speakerLabel: "여학생1",
-    text: "이안선배!! 이거 받아주세요!!! 밤새 직접 만든 거예요!!!",
+    text: "이안 선배!! 이거 받아주세요!!! 밤새 직접 만든 거예요!!!",
     nextSceneId: "day-4-ian-valentine-girl-2",
   },
 
@@ -96,7 +96,7 @@ export const day4Scenes: Record<string, Scene> = {
     background: "ian_event_5",
     speaker: "narrator",
     speakerLabel: "여학생3",
-    text: "이안선배 오늘도 너무 멋있어요!! 초콜렛 받아주세요!!",
+    text: "이안 선배 오늘도 너무 멋있어요!! 초콜릿 받아주세요!!",
     nextSceneId: "day-4-ian-valentine-girl-4",
   },
 
@@ -388,7 +388,7 @@ export const day4Scenes: Record<string, Scene> = {
     id: "day-4-doha-valentine-start",
     background: "doha_event_5",
     speaker: "narrator",
-    text: "동아리방 앞에서 도하선배가 학생들에게 둘러싸여 있었다.",
+    text: "동아리방 앞에서 도하 선배가 학생들에게 둘러싸여 있었다.",
     delayBeforeDialogue: 3000,
     nextSceneId: "day-4-doha-valentine-girl-1",
   },
@@ -398,7 +398,7 @@ export const day4Scenes: Record<string, Scene> = {
     background: "doha_event_5",
     speaker: "narrator",
     speakerLabel: "여학생1",
-    text: "꺅!!!!!!도하선배!! 초콜렛 받아주세요!!!!",
+    text: "꺅!!!!!! 도하 선배!! 초콜릿 받아주세요!!!!",
     nextSceneId: "day-4-doha-valentine-girl-2",
   },
 
@@ -407,7 +407,7 @@ export const day4Scenes: Record<string, Scene> = {
     background: "doha_event_5",
     speaker: "narrator",
     speakerLabel: "여학생2",
-    text: "도하선배 제것두요! 이번 연극제 기대할게요!!",
+    text: "도하 선배, 제 것도요! 이번 연극제 기대할게요!!",
     nextSceneId: "day-4-doha-valentine-boy-1",
   },
 
@@ -425,7 +425,7 @@ export const day4Scenes: Record<string, Scene> = {
     background: "doha_event_5",
     speaker: "narrator",
     speakerLabel: "여학생3",
-    text: "도하선배 제것두요!!",
+    text: "도하 선배, 제 것도요!!",
     nextSceneId: "day-4-doha-valentine-harin-popular",
   },
 
@@ -435,7 +435,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "와..선배 진짜 인기가 많으시네..하긴 저 얼굴에 인기가 없기도 힘들겠다.",
+    text: "와... 선배 진짜 인기가 많으시네... 하긴 저 얼굴에 인기가 없기도 힘들겠다.",
     nextSceneId: "day-4-doha-valentine-doha-call",
   },
 
@@ -445,7 +445,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "default",
-    text: "어? 하린이 동아리방에 왠일이야?",
+    text: "어? 하린이 동아리방에 웬일이야?",
     nextSceneId: "day-4-doha-valentine-stare",
   },
 
@@ -453,7 +453,7 @@ export const day4Scenes: Record<string, Scene> = {
     id: "day-4-doha-valentine-stare",
     background: "doha_event_5",
     speaker: "narrator",
-    text: "도하선배가 나를 부르는 순간 일제히 시선들이 꽂힌다.",
+    text: "도하 선배가 나를 부르는 순간 일제히 시선들이 꽂힌다.",
     nextSceneId: "day-4-doha-valentine-awkward",
   },
 
@@ -463,7 +463,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "아^^;; 도하선배 안..녕하세요. 동아리방에 뭐좀 두고와서요.",
+    text: "아^^;; 도하 선배, 안...녕하세요. 동아리방에 뭐 좀 두고 와서요.",
     nextSceneId: "day-4-doha-valentine-bag",
   },
 
@@ -501,7 +501,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "저 도하선배!",
+    text: "저 도하 선배!",
     nextSceneId: "day-4-doha-valentine-doha",
   },
 
@@ -531,7 +531,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "happy",
-    text: "(본인의 가방에 가득한 초콜렛들을 손가락으로 가리킨다.)",
+    text: "(본인의 가방에 가득한 초콜릿들을 손가락으로 가리킨다.)",
     nextSceneId: "day-4-doha-valentine-harin-3",
   },
 
@@ -541,7 +541,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "에이..당연히 선배것도 준비해뒀죠.",
+    text: "에이... 당연히 선배 것도 준비해뒀죠.",
     nextSceneId: "day-4-doha-valentine-friendship",
   },
 
@@ -551,7 +551,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "happy",
-    text: "이거 그냥 우정 초콜렛이야?",
+    text: "이거 그냥 우정 초콜릿이야?",
     nextSceneId: "day-4-doha-valentine-surprised",
   },
 
@@ -601,7 +601,7 @@ export const day4Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "도하선배 오늘따라 더더더더 상큼해보여....",
+    text: "도하 선배 오늘따라 더더더더 상큼해 보여....",
     nextSceneId: "day-4-doha-valentine-end",
   },
 

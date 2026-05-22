@@ -79,7 +79,7 @@ function App() {
   const guideTransitionTimeoutRef = useRef<number | undefined>(undefined);
   const isTransitioningRef = useRef(false);
   const titleBackgroundUrl = new URL(
-    "./assets/backgrounds/title.png",
+    "./assets/backgrounds/title.jpg",
     import.meta.url,
   ).href;
   const guideImageUrl = new URL("./assets/guide/guide.png", import.meta.url)
@@ -91,7 +91,7 @@ function App() {
     import.meta.url,
   ).href;
   const endingCreditsWideUrl = new URL(
-    "./assets/backgrounds/credits/ending_credits_wide.png",
+    "./assets/backgrounds/credits/ending_credits_wide.jpg",
     import.meta.url,
   ).href;
 

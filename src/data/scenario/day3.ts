@@ -8,7 +8,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "뭔가 한것도 없는데 왜이렇게 일어나지 힘들지 ㅠ 힝",
+    text: "뭔가 한 것도 없는데 왜 이렇게 일어나기가 힘들지 ㅠ 힝",
     nextSceneId: "day-3-street",
   },
 
@@ -29,13 +29,13 @@ export const day3Scenes: Record<string, Scene> = {
     text: "여름의 끝자락에 연극제가 열리는데 참가하는 하린은 대본이 필요하다.",
     choices: [
       {
-        text: "교실 가기전에 연극동아리실로 먼저 간다.",
+        text: "교실 가기 전에 연극동아리실로 먼저 간다.",
         nextSceneId: "day-3-club-room-script",
         nextSceneIdWhenAffectionEqual: "day-3-combi-argue-1",
         affectionEqualBetween: ["ian", "doha"],
       },
       {
-        text: "아니다! 하교할때 들르자.",
+        text: "아니다! 하교할 때 들르자.",
         nextSceneId: "day-3-classroom",
       },
     ],
@@ -45,7 +45,7 @@ export const day3Scenes: Record<string, Scene> = {
     id: "day-3-club-room-script",
     background: "club-room",
     speaker: "narrator",
-    text: "하린은 동아리실로 들어와 화이트보드 아래에 있는 대본을 집어들었다.",
+    text: "하린은 동아리실로 들어와 화이트보드 아래에 있는 대본을 집어 들었다.",
     nextSceneId: "day-3-club-room-script-harin",
   },
 
@@ -83,7 +83,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "default",
-    text: "노란고무줄! 그 애한테는 내가 먼저 고백하려 했어 니가 뭔데!",
+    text: "노란고무줄! 그 애한테는 내가 먼저 고백하려 했어. 네가 뭔데!",
     nextSceneId: "day-3-combi-event-1-ian",
   },
 
@@ -103,7 +103,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "저저저저저저!!! 선배님은 잠시만요!! 왜 싸우시는거예요오 ㅠㅠㅠ",
+    text: "저저저저저저!!! 선배님은 잠시만요!! 왜 싸우시는 거예요오 ㅠㅠㅠ",
     nextSceneId: "day-3-combi-doha-reaction",
   },
 
@@ -133,7 +133,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "happy",
-    text: "하린아 미안! 우리 하계 연극제 준비 하는거였어!",
+    text: "하린아 미안! 우리 하계 연극제 준비하는 거였어!",
     nextSceneId: "day-3-combi-event-2-doha",
   },
 
@@ -153,7 +153,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "happy",
-    text: '이번에 우리 연극 뭔지 봤지! "시간을 건너서" 너도 한번 봐봐 우리 이번에 이거 올릴거야',
+    text: '이번에 우리 연극 뭔지 봤지? "시간을 건너서". 너도 한 번 봐봐. 우리 이번에 이거 올릴 거야.',
     nextSceneId: "day-3-combi-event-2-timing",
   },
 
@@ -173,7 +173,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "선배님들 때문에 간 떨어질 뻔 했잖아요!!!!",
+    text: "선배님들 때문에 간 떨어질 뻔했잖아요!!!!",
     nextSceneId: "day-3-combi-event-3-doha",
   },
 
@@ -201,7 +201,7 @@ export const day3Scenes: Record<string, Scene> = {
     id: "day-3-combi-event-3-narrator-1",
     background: "combi_event_1_3",
     speaker: "narrator",
-    text: "두 사람은 뭔가 해냈다는듯이 서로 보며 웃었다.",
+    text: "두 사람은 뭔가 해냈다는 듯이 서로 보며 웃었다.",
     nextSceneId: "day-3-combi-event-3-narrator-2",
   },
 
@@ -209,7 +209,7 @@ export const day3Scenes: Record<string, Scene> = {
     id: "day-3-combi-event-3-narrator-2",
     background: "combi_event_1_3",
     speaker: "narrator",
-    text: "따뜻한 햇살이 창문으로 넘어온다. 지금 이순간 여기가 무대가 된것 같았다.",
+    text: "따뜻한 햇살이 창문으로 넘어온다. 지금 이 순간 여기가 무대가 된 것 같았다.",
     nextSceneId: "day-3-classroom",
   },
 
@@ -219,7 +219,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "오늘은 수업들은 다 끝났고.. 이후는 뭐하지? 도서관에서 공부 좀 할까?",
+    text: "오늘 수업은 다 끝났고... 이제 뭐하지? 도서관에서 공부 좀 할까?",
     choices: [
       {
         text: "중간고사 대비 공부를 한다.",
@@ -230,7 +230,7 @@ export const day3Scenes: Record<string, Scene> = {
         nextSceneId: "day-3-go-home",
       },
       {
-        text: "신관쪽으로 이동했다가 집으로 간다.",
+        text: "신관 쪽으로 이동했다가 집으로 간다.",
         nextSceneId: "day-3-seoin-path-start",
         requiredSeenSceneId: "day-2-seoin-event-1",
       },
@@ -385,7 +385,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "도하선배!? 거기서 뭐 하세요!?",
+    text: "도하 선배!? 거기서 뭐 하세요!?",
     nextSceneId: "day-3-doha-field-doha",
   },
 
@@ -606,7 +606,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "오늘 도서관에서 본 이안선배, 평소랑 조금 달라 보였지...",
+    text: "오늘 도서관에서 본 이안 선배, 평소랑 조금 달라 보였지...",
     nextSceneId: "day-3-home-reflection-ian-2",
   },
 
@@ -624,7 +624,7 @@ export const day3Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "도하선배는 괜찮다면서 왜 자꾸 걱정되게 하는 걸까...",
+    text: "도하 선배는 괜찮다면서 왜 자꾸 걱정되게 하는 걸까...",
     nextSceneId: "day-3-home-reflection-doha-2",
   },
 

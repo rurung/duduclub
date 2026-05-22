@@ -35,7 +35,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "happy",
-    text: "오늘은 공원쪽으로 가보자!",
+    text: "오늘은 공원 쪽으로 가보자!",
     nextSceneId: "day-2-park-child-1",
   },
 
@@ -54,7 +54,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "어? 무슨 일이지? 이게 무슨 소리야? 아이 울음 소리가?",
+    text: "어? 무슨 일이지? 아이 울음소리 같은데?",
     nextSceneId: "day-2-park-unknown",
   },
 
@@ -63,7 +63,7 @@ export const day2Scenes: Record<string, Scene> = {
     background: "park",
     speaker: "narrator",
     speakerLabel: "?",
-    text: "잠깐만 꼬마아가씨 이 멋진 오빠가 도와줄게",
+    text: "잠깐만, 꼬마 아가씨. 이 멋진 오빠가 도와줄게.",
     nextSceneId: "day-2-park-harin-2",
   },
 
@@ -93,7 +93,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "happy",
-    text: "(풍선을 손으로 낚아채며) 어때 완전 멋있지?",
+    text: "(풍선을 손으로 낚아채며) 어때, 완전 멋있지?",
     nextSceneId: "day-2-ian-event-2c",
   },
 
@@ -112,7 +112,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "happy",
-    text: "앞으로 이 끈 놓지말구 잘 잡구 다녀야해",
+    text: "앞으로 이 끈 놓지 말고 잘 잡고 다녀야 해.",
     nextSceneId: "day-2-ian-event-2e",
   },
 
@@ -129,7 +129,7 @@ export const day2Scenes: Record<string, Scene> = {
     id: "day-2-ian-event-2f",
     background: "park",
     speaker: "narrator",
-    text: "아이는 저 멀리 분수대쪽으로 뛰어갔다",
+    text: "아이는 저 멀리 분수대 쪽으로 뛰어갔다.",
     nextSceneId: "day-2-ian-event-2g",
   },
 
@@ -149,7 +149,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "happy",
-    text: "후배님 또 내 멋진 활약상을 봤나보네 이왕 이렇게 된거 같이 학교갈래?",
+    text: "후배님, 또 내 멋진 활약상을 봤나 보네. 이왕 이렇게 된 거 같이 학교 갈래?",
     nextSceneId: "day-2-ian-event-2i",
   },
 
@@ -159,7 +159,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "그랬다가는 이안선배 친위대한테 끌려갈지도 몰라요^^..",
+    text: "그랬다가는 이안 선배 친위대한테 끌려갈지도 몰라요^^..",
     nextSceneId: "day-2-ian-event-2j",
   },
 
@@ -169,7 +169,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "ian",
     character: "ian",
     characterExpression: "default",
-    text: "에이 뭐어때",
+    text: "에이, 뭐 어때.",
     nextSceneId: "day-2-ian-choice",
   },
 
@@ -180,12 +180,12 @@ export const day2Scenes: Record<string, Scene> = {
     text: "어떻게 할까?",
     choices: [
       {
-        text: "이안에게 그래도 아까 아이 풍선 꺼내줄때 멋있었어요 하면서 엄지척을 한다",
+        text: "이안에게 그래도 아까 아이 풍선 꺼내줄 때 멋있었어요 하면서 엄지척을 한다",
         nextSceneId: "day-2-ian-thumb",
         affection: { ian: 20 },
       },
       {
-        text: "뒤도 안돌아보고 도망간다",
+        text: "뒤도 안 돌아보고 도망간다",
         nextSceneId: "day-2-ian-run",
         affection: { ian: -10 },
       },
@@ -206,7 +206,7 @@ export const day2Scenes: Record<string, Scene> = {
     id: "day-2-ian-run",
     background: "park",
     speaker: "narrator",
-    text: "하린은 후폭풍이 두려워 일단 냅다 학교로 튀었다",
+    text: "하린은 후폭풍이 두려워 일단 냅다 학교로 튀었다.",
     nextSceneId: "day-2-ian-reflect-1",
   },
 
@@ -301,7 +301,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "도! 도하선배!!!! 괜찮으세요!?",
+    text: "도! 도하 선배!!!! 괜찮으세요!?",
     nextSceneId: "day-2-doha-event-3c",
   },
 
@@ -311,7 +311,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "default",
-    text: "야! 똑바로 보고 차라고! 사람 다치잖아! 제대로 안해?",
+    text: "야! 똑바로 보고 차라고! 사람 다치잖아! 제대로 안 해?",
     nextSceneId: "day-2-doha-event-3d",
   },
 
@@ -320,7 +320,7 @@ export const day2Scenes: Record<string, Scene> = {
     background: "doha_event_3",
     speaker: "narrator",
     speakerLabel: "축구부1",
-    text: "윽...도하선배잖아",
+    text: "윽... 도하 선배잖아.",
     nextSceneId: "day-2-doha-event-3e",
   },
 
@@ -329,7 +329,7 @@ export const day2Scenes: Record<string, Scene> = {
     background: "doha_event_3",
     speaker: "narrator",
     speakerLabel: "축구부2",
-    text: "도하선배 한테 혼났어!",
+    text: "도하 선배한테 혼났어!",
     nextSceneId: "day-2-doha-event-3f",
   },
 
@@ -367,7 +367,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "default",
-    text: "내 반사신경이 대단한거지. 초능력자는 평가가 후한데?",
+    text: "내 반사신경이 대단한 거지. 초능력자는 평가가 후한데?",
     nextSceneId: "day-2-doha-event-3j",
   },
 
@@ -377,7 +377,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "그래도 양호실 가봐야하는거 아니예요!?",
+    text: "그래도 양호실 가봐야 하는 거 아니에요!?",
     nextSceneId: "day-2-doha-event-3k",
   },
 
@@ -387,7 +387,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "default",
-    text: "아냐 이정돈 아무것도 아니야 (멀쩡한 손을 보여준다.)(안 멀쩡함.)",
+    text: "아냐, 이 정도는 아무것도 아니야. (멀쩡한 손을 보여준다.)(안 멀쩡함.)",
     nextSceneId: "day-2-doha-choice",
   },
 
@@ -400,12 +400,12 @@ export const day2Scenes: Record<string, Scene> = {
     text: "잠깐만요!",
     choices: [
       {
-        text: "도하선배의 손에 있는 상처들을 손수건으로 감싸준다",
+        text: "도하 선배의 손에 있는 상처들을 손수건으로 감싸준다",
         nextSceneId: "day-2-doha-handkerchief",
         affection: { doha: 30 },
       },
       {
-        text: "도하선배에게 고맙다고 이야기 한다",
+        text: "도하 선배에게 고맙다고 이야기한다",
         nextSceneId: "day-2-doha-thanks",
         affection: { doha: 5 },
       },
@@ -418,7 +418,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "embarrassed",
-    text: "안아픈 사람 마냥 그렇게 웃지 마요...",
+    text: "안 아픈 사람 마냥 그렇게 웃지 마요...",
     nextSceneId: "day-2-doha-handkerchief-doha-1",
   },
 
@@ -428,7 +428,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "happy",
-    text: "진짜 안아픈데..근데 또 누가 걱정해주니까 조금 아픈거 같기도..",
+    text: "진짜 안 아픈데... 근데 또 누가 걱정해주니까 조금 아픈 것 같기도...",
     nextSceneId: "day-2-doha-handkerchief-harin-1",
   },
 
@@ -476,7 +476,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "doha",
     character: "doha",
     characterExpression: "default",
-    text: "(이런거 하나에 이렇게 고마워 하면 나중에 더 고마워할 일 생겼을 때는 어떻게 할거야 김하린?..)",
+    text: "(이런 거 하나에 이렇게 고마워하면 나중에 더 고마워할 일 생겼을 때는 어떻게 할 거야, 김하린?..)",
     nextSceneId: "day-2-doha-handkerchief-thanks",
   },
 
@@ -496,7 +496,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "happy",
-    text: "도하선배, 정말 고마워요!",
+    text: "도하 선배, 정말 고마워요!",
     nextSceneId: "day-2-doha-thanks-harin",
   },
 
@@ -506,7 +506,7 @@ export const day2Scenes: Record<string, Scene> = {
     speaker: "heroine",
     character: "heroine",
     characterExpression: "default",
-    text: "으으... 다음부턴 운동장이 아니라 신관쪽 길로 들어가야겠어 아! 지금이라도 신관쪽으로 갈만한 길이 있는지 어디 확인해볼까?",
+    text: "으으... 다음부턴 운동장 말고 신관 쪽 길로 들어가야겠어. 아, 지금이라도 신관 쪽으로 갈 만한 길이 있는지 확인해볼까?",
     nextSceneId: "day-2-doha-thanks-narrator-1",
   },
 
@@ -514,7 +514,7 @@ export const day2Scenes: Record<string, Scene> = {
     id: "day-2-doha-thanks-narrator-1",
     background: "Field",
     speaker: "narrator",
-    text: "학교 운동장 왼쪽 뒷편으로 길이 나있다.",
+    text: "학교 운동장 왼쪽 뒤편으로 길이 나 있다.",
     nextSceneId: "day-2-doha-thanks-narrator-2",
   },
 
@@ -522,7 +522,7 @@ export const day2Scenes: Record<string, Scene> = {
     id: "day-2-doha-thanks-narrator-2",
     background: "Field",
     speaker: "narrator",
-    text: "근데 으스스하다. 사람들이 잘 다니지 않는가보다.",
+    text: "근데 으스스하다. 사람들이 잘 다니지 않는가 보다.",
     nextSceneId: "day-2-doha-thanks-narrator-3",
   },
 
@@ -541,7 +541,7 @@ export const day2Scenes: Record<string, Scene> = {
     text: "어떻게 할까?",
     choices: [
       {
-        text: "신관쪽 길로 들어가본다",
+        text: "신관 쪽 길로 들어가본다",
         nextSceneId: "day-2-seoin-path-start",
       },
       {
@@ -611,7 +611,7 @@ export const day2Scenes: Record<string, Scene> = {
     id: "show-affection-day-2",
     background: "heroine-room",
     speaker: "narrator",
-    text: "오늘 하루 있었 일을 떠올리며 애정도를 확인했다.",
+    text: "오늘 하루 있었던 일을 떠올리며 애정도를 확인했다.",
     choices: [
       {
         text: "오늘도 힘들었다 잠들어 볼까?",

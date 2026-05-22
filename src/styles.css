@@ -308,7 +308,7 @@ button {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(38, 33, 42, 0.82), rgba(22, 18, 28, 0.95)),
-    url("./assets/backgrounds/title.png");
+    url("./assets/backgrounds/title.jpg");
   background-size: cover;
   background-position: center;
   color: white;

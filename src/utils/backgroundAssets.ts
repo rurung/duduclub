@@ -1,12 +1,30 @@
-const backgroundFiles = import.meta.glob("../assets/**/*.{png,jpg,jpeg}", {
-  eager: true,
-  as: "url",
-}) as Record<string, string>;
+const backgroundFiles = import.meta.glob(
+  [
+    "../assets/backgrounds/**/*.{png,jpg,jpeg}",
+    "../assets/cg/**/*.{png,jpg,jpeg}",
+    "../assets/event/**/*.{png,jpg,jpeg}",
+  ],
+  {
+    eager: true,
+    as: "url",
+  },
+) as Record<string, string>;
+
+const backgroundPlaceholderFiles = import.meta.glob(
+  "../assets/placeholders/**/*.{jpg,jpeg}",
+  {
+    eager: true,
+    as: "url",
+  },
+) as Record<string, string>;
 
 const loadedBackgrounds = new Set<string>();
 const loadingBackgrounds = new Map<string, Promise<void>>();
 
-export const getBackgroundUrl = (background: string) => {
+const findBackgroundAsset = (
+  files: Record<string, string>,
+  background: string,
+) => {
   const candidates = [
     `${background}.png`,
     `${background}.jpg`,
@@ -20,15 +38,45 @@ export const getBackgroundUrl = (background: string) => {
   ];
 
   for (const candidate of candidates) {
-    const path = Object.keys(backgroundFiles).find((key) =>
+    const path = Object.keys(files).find((key) =>
       key.endsWith(`/${candidate}`),
     );
     if (path) {
-      return backgroundFiles[path];
+      return files[path];
     }
   }
 
   return undefined;
+};
+
+const loadImage = (imageUrl: string) =>
+  new Promise<void>((resolve) => {
+    const image = new Image();
+    image.onload = async () => {
+      try {
+        await image.decode?.();
+      } catch {
+        // Some browsers can reject decode after onload even though the image is usable.
+      }
+
+      resolve();
+    };
+    image.onerror = () => {
+      resolve();
+    };
+    image.src = imageUrl;
+  });
+
+export const getBackgroundUrl = (background: string) =>
+  findBackgroundAsset(backgroundFiles, background);
+
+export const getBackgroundPlaceholderUrl = (background: string) =>
+  findBackgroundAsset(backgroundPlaceholderFiles, background);
+
+export const isBackgroundLoaded = (background: string) => {
+  const backgroundUrl = getBackgroundUrl(background);
+
+  return !backgroundUrl || loadedBackgrounds.has(backgroundUrl);
 };
 
 export const preloadBackground = (background: string) => {
@@ -43,24 +91,9 @@ export const preloadBackground = (background: string) => {
     return currentLoad;
   }
 
-  const load = new Promise<void>((resolve) => {
-    const image = new Image();
-    image.onload = async () => {
-      try {
-        await image.decode?.();
-      } catch {
-        // Some browsers can reject decode after onload even though the image is usable.
-      }
-
-      loadedBackgrounds.add(backgroundUrl);
-      loadingBackgrounds.delete(backgroundUrl);
-      resolve();
-    };
-    image.onerror = () => {
-      loadingBackgrounds.delete(backgroundUrl);
-      resolve();
-    };
-    image.src = backgroundUrl;
+  const load = loadImage(backgroundUrl).then(() => {
+    loadedBackgrounds.add(backgroundUrl);
+    loadingBackgrounds.delete(backgroundUrl);
   });
 
   loadingBackgrounds.set(backgroundUrl, load);

@@ -203,22 +203,60 @@ button {
   background: #0d0b10;
 }
 
-.stage__background {
+.stage__background,
+.stage__background-placeholder {
   position: absolute;
   inset: 0;
   z-index: 0;
   background-size: cover;
   background-position: center;
+}
+
+.stage__background {
   will-change: opacity;
+}
+
+.stage__background-placeholder {
+  transform: scale(1.04);
+  filter: blur(18px) saturate(0.92);
+  opacity: 1;
+  will-change: opacity;
+}
+
+.stage__background-placeholder--hidden {
+  opacity: 0;
+}
+
+.stage__loading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.stage__loading-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(255, 255, 255, 0.36);
+  border-top-color: rgba(255, 210, 229, 0.96);
+  border-radius: 999px;
+  box-shadow: 0 8px 26px rgba(10, 6, 14, 0.24);
+  animation: loading-spin 0.8s linear infinite;
 }
 
 .stage--doha_event_ending .stage__background,
 .stage--doha_event_ending_1 .stage__background,
-.stage--doha_event_ending_2 .stage__background {
+.stage--doha_event_ending_2 .stage__background,
+.stage--doha_event_ending .stage__background-placeholder,
+.stage--doha_event_ending_1 .stage__background-placeholder,
+.stage--doha_event_ending_2 .stage__background-placeholder {
   background-position: center 35%;
 }
 
-.stage--doha_event_6 .stage__background {
+.stage--doha_event_6 .stage__background,
+.stage--doha_event_6 .stage__background-placeholder {
   background-position: center 56%;
 }
 

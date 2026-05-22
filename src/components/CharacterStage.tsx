@@ -1,6 +1,12 @@
+import { useEffect, useState } from "react";
 import type { CharacterExpression, CharacterId } from "../types/game";
 import { getCharacter } from "../data/characters";
-import { getBackgroundUrl } from "../utils/backgroundAssets";
+import {
+  getBackgroundPlaceholderUrl,
+  getBackgroundUrl,
+  isBackgroundLoaded,
+  preloadBackground,
+} from "../utils/backgroundAssets";
 
 const backgroundLabels: Record<string, string> = {
   "club-room": "동아리방",
@@ -107,25 +113,64 @@ export function CharacterStage({
   const activeCharacter = character ? getCharacter(character) : undefined;
   const imageSrc = activeCharacter?.expressions?.[characterExpression];
   const backgroundUrl = getBackgroundUrl(background);
+  const backgroundPlaceholderUrl = getBackgroundPlaceholderUrl(background);
+  const [backgroundReady, setBackgroundReady] = useState(() =>
+    isBackgroundLoaded(background),
+  );
   const fadeDuration = fadeTransitionMs ?? 1200;
   const showBackgroundLabel =
     !hideContent && !hiddenBackgroundLabels.has(background);
+
+  useEffect(() => {
+    let active = true;
+
+    setBackgroundReady(isBackgroundLoaded(background));
+    preloadBackground(background).then(() => {
+      if (active) {
+        setBackgroundReady(true);
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [background]);
 
   return (
     <section
       className={`stage stage--${background} ${hideContent ? "stage--highlight" : ""}`}
     >
+      {backgroundPlaceholderUrl && (
+        <div
+          className={`stage__background-placeholder${
+            backgroundReady ? " stage__background-placeholder--hidden" : ""
+          }`}
+          style={
+            {
+              backgroundImage: `linear-gradient(180deg, rgba(20,16,24,0.34), rgba(14,11,18,0.56)), url(${backgroundPlaceholderUrl})`,
+              transition: `opacity ${Math.min(fadeDuration, 700)}ms ease-in-out`,
+            } as React.CSSProperties
+          }
+        />
+      )}
       {backgroundUrl && (
         <div
-          className="stage__background"
+          className={`stage__background${
+            backgroundReady ? " stage__background--ready" : ""
+          }`}
           style={
             {
               backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.12), rgba(39,32,46,0.18)), url(${backgroundUrl})`,
-              opacity: backgroundOpacity,
+              opacity: backgroundReady ? backgroundOpacity : 0,
               transition: `opacity ${fadeDuration}ms ease-in-out`,
             } as React.CSSProperties
           }
         />
+      )}
+      {backgroundUrl && !backgroundReady && (
+        <div className="stage__loading" aria-label="배경 이미지 로딩 중">
+          <span className="stage__loading-spinner" />
+        </div>
       )}
       {showBackgroundLabel && (
         <div className="stage__label">

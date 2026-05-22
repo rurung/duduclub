@@ -12,7 +12,7 @@ import {
   INITIAL_GAME_DATE,
   type GameDate,
 } from "./utils/gameDate";
-import { preloadBackground } from "./utils/backgroundAssets";
+import { preloadBackground, preloadBackgrounds } from "./utils/backgroundAssets";
 import { SCENE_FADE_MS } from "./utils/sceneTransition";
 
 const CHOICE_CHARACTER_FADE_MS = 480;
@@ -21,6 +21,26 @@ const GUIDE_TRANSITION_MS = 900;
 const GALLERY_UNLOCKED_STORAGE_KEY = "arktis-gallery-unlocked";
 const GALLERY_IMAGES_STORAGE_KEY = "arktis-gallery-images";
 const MOBILE_MEDIA_QUERY = "(max-width: 820px), (pointer: coarse)";
+const CRITICAL_BACKGROUNDS = [
+  "title",
+  "title_1",
+  "club-room",
+  "heroine-room",
+  "heroine_room_night",
+  "morning_street",
+  "school-yard",
+  "class_room",
+  "park",
+  "Field",
+  "school_store",
+  "morning_rooftop",
+  "library",
+  "evening-street",
+  "night_street",
+  "sub_schoolzone_morning",
+  "sub_schoolzone_night",
+  "small_theater",
+];
 
 const wait = (ms: number) =>
   new Promise<void>((resolve) => {
@@ -71,6 +91,9 @@ function App() {
   const [isMobileExperience, setIsMobileExperience] = useState(() =>
     window.matchMedia(MOBILE_MEDIA_QUERY).matches,
   );
+  const [isPreloadingCriticalAssets, setIsPreloadingCriticalAssets] =
+    useState(false);
+  const criticalAssetsPreloadRef = useRef<Promise<void>>();
   const [galleryUnlocked, setGalleryUnlocked] = useState(
     readStoredGalleryUnlocked,
   );
@@ -101,6 +124,17 @@ function App() {
 
   const scene = scenes[sceneId];
   const isEndingCreditsScene = sceneId === "ending-credits";
+
+  const preloadCriticalAssets = useCallback(() => {
+    if (!criticalAssetsPreloadRef.current) {
+      criticalAssetsPreloadRef.current = Promise.all([
+        preloadCharacterPortraits(),
+        preloadBackgrounds(CRITICAL_BACKGROUNDS),
+      ]).then(() => undefined);
+    }
+
+    return criticalAssetsPreloadRef.current;
+  }, []);
 
   useEffect(() => {
     const mobileMediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
@@ -392,7 +426,7 @@ function App() {
     }
 
     setIsStarting(true);
-    void preloadCharacterPortraits();
+    void preloadCriticalAssets();
     setSceneContentTransitionMs(400);
     setTitleOpacity(0);
     setSceneContentOpacity(0);
@@ -425,18 +459,22 @@ function App() {
     }
 
     setIsGuideExiting(true);
-    void preloadCharacterPortraits();
+    void preloadCriticalAssets();
 
     guideTransitionTimeoutRef.current = window.setTimeout(() => {
-      setIsGuideOpen(false);
-      setIsGuideExiting(false);
-      setSceneId("intro-rain");
-      setStarted(true);
-      setSceneContentTransitionMs(GUIDE_TRANSITION_MS);
-      setSceneContentOpacity(0);
+      setIsPreloadingCriticalAssets(true);
+      preloadCriticalAssets().then(() => {
+        setIsPreloadingCriticalAssets(false);
+        setIsGuideOpen(false);
+        setIsGuideExiting(false);
+        setSceneId("intro-rain");
+        setStarted(true);
+        setSceneContentTransitionMs(GUIDE_TRANSITION_MS);
+        setSceneContentOpacity(0);
 
-      requestAnimationFrame(() => {
-        setSceneContentOpacity(1);
+        requestAnimationFrame(() => {
+          setSceneContentOpacity(1);
+        });
       });
     }, GUIDE_TRANSITION_MS);
   };
@@ -785,6 +823,18 @@ function App() {
   return (
     <main className="game-shell">
       <div className="game-screen">
+        {(isPreloadingCriticalAssets || isSceneTransitioning) && (
+          <div className="loading-overlay">
+            <div className="loading-overlay__panel">
+              <span className="loading-overlay__spinner" />
+              <span>
+                {isPreloadingCriticalAssets
+                  ? "이미지를 불러오는 중..."
+                  : "장면을 준비하는 중..."}
+              </span>
+            </div>
+          </div>
+        )}
         {isGalleryOpen ? (
           <Gallery
             collectedImages={collectedGalleryImages}

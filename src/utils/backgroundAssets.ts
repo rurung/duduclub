@@ -66,3 +66,6 @@ export const preloadBackground = (background: string) => {
   loadingBackgrounds.set(backgroundUrl, load);
   return load;
 };
+
+export const preloadBackgrounds = (backgrounds: string[]) =>
+  Promise.all(backgrounds.map(preloadBackground)).then(() => undefined);

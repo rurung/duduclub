@@ -1079,7 +1079,7 @@ export const seoinScenes: Record<string, Scene> = {
     background: "seoin_event_7",
     speaker: "seoin",
     character: "seoin",
-    characterExpression: "dark",
+    characterExpression: "rage",
     text: "이미 오래전에 끝난 일이야.",
     nextSceneId: "day-6-seoin-harin-not-ended",
   },

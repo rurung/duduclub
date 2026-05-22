@@ -823,15 +823,11 @@ function App() {
   return (
     <main className="game-shell">
       <div className="game-screen">
-        {(isPreloadingCriticalAssets || isSceneTransitioning) && (
+        {isPreloadingCriticalAssets && (
           <div className="loading-overlay">
             <div className="loading-overlay__panel">
               <span className="loading-overlay__spinner" />
-              <span>
-                {isPreloadingCriticalAssets
-                  ? "이미지를 불러오는 중..."
-                  : "장면을 준비하는 중..."}
-              </span>
+              <span>이미지를 불러오는 중...</span>
             </div>
           </div>
         )}

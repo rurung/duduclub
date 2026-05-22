@@ -648,26 +648,6 @@ button {
   padding: 14px 16px;
 }
 
-.stage--club-room {
-  background-color: #d9ccb9;
-}
-
-.stage--classroom-hallway {
-  background-color: #cad6e1;
-}
-
-.stage--evening-street {
-  background-color: #c98d70;
-}
-
-.stage--library {
-  background-color: #b8a777;
-}
-
-.stage--school-yard {
-  background-color: #91b89d;
-}
-
 .stage__label {
   position: absolute;
   top: 18px;

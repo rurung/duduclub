@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe6f0"/>
+      <stop offset="0.5" stop-color="#ff9ec4"/>
+      <stop offset="1" stop-color="#ff6aa8"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="20" y1="18" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff7fb"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path
+    d="M32 49.5 17.9 36.2c-3.6-3.4-4.1-9.1-1-13.1 3.1-4.1 9.3-4.2 12.7-.4L32 25.4l2.4-2.7c3.4-3.8 9.6-3.7 12.7.4 3.1 4 2.6 9.7-1 13.1L32 49.5Z"
+    fill="url(#heart)"
+  />
+  <path
+    d="M32 49.5 17.9 36.2c-3.6-3.4-4.1-9.1-1-13.1 3.1-4.1 9.3-4.2 12.7-.4L32 25.4l2.4-2.7c3.4-3.8 9.6-3.7 12.7.4 3.1 4 2.6 9.7-1 13.1L32 49.5Z"
+    fill="none"
+    stroke="#ff4f9a"
+    stroke-width="2.25"
+  />
+  <path d="M24 33.5h16" stroke="#ff6aa8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 25.5v16" stroke="#ff6aa8" stroke-width="3" stroke-linecap="round"/>
+</svg>

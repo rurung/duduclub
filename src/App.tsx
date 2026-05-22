@@ -3,7 +3,7 @@ import { CharacterStage } from "./components/CharacterStage";
 import { ChoiceList } from "./components/ChoiceList";
 import { DialogueBox } from "./components/DialogueBox";
 import { Gallery } from "./components/Gallery";
-import { getCharacter } from "./data/characters";
+import { getCharacter, preloadCharacterPortraits } from "./data/characters";
 import { galleryBackgrounds } from "./data/gallery";
 import { initialAffection, scenes } from "./data/scenes";
 import type { Affection, Choice, GameHistoryEntry, Scene } from "./types/game";
@@ -373,6 +373,7 @@ function App() {
     }
 
     setIsStarting(true);
+    void preloadCharacterPortraits();
     setSceneContentTransitionMs(400);
     setTitleOpacity(0);
     setSceneContentOpacity(0);
@@ -405,6 +406,7 @@ function App() {
     }
 
     setIsGuideExiting(true);
+    void preloadCharacterPortraits();
 
     guideTransitionTimeoutRef.current = window.setTimeout(() => {
       setIsGuideOpen(false);

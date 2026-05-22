@@ -80,3 +80,51 @@ export const characters: Character[] = [
 export const getCharacter = (id: Character["id"]) => {
   return characters.find((character) => character.id === id);
 };
+
+const loadedPortraits = new Set<string>();
+const loadingPortraits = new Map<string, Promise<void>>();
+
+const preloadPortrait = (portraitUrl: string) => {
+  if (loadedPortraits.has(portraitUrl)) {
+    return Promise.resolve();
+  }
+
+  const currentLoad = loadingPortraits.get(portraitUrl);
+  if (currentLoad) {
+    return currentLoad;
+  }
+
+  const load = new Promise<void>((resolve) => {
+    const image = new Image();
+
+    image.onload = async () => {
+      try {
+        await image.decode?.();
+      } catch {
+        // Some browsers reject decode after a successful load even though the image is usable.
+      }
+
+      loadedPortraits.add(portraitUrl);
+      loadingPortraits.delete(portraitUrl);
+      resolve();
+    };
+
+    image.onerror = () => {
+      loadingPortraits.delete(portraitUrl);
+      resolve();
+    };
+
+    image.src = portraitUrl;
+  });
+
+  loadingPortraits.set(portraitUrl, load);
+  return load;
+};
+
+export const preloadCharacterPortraits = () => {
+  const portraitUrls = characters.flatMap((character) =>
+    Object.values(character.expressions ?? {}).filter(Boolean),
+  ) as string[];
+
+  return Promise.all(portraitUrls.map(preloadPortrait)).then(() => undefined);
+};

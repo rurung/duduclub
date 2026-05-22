@@ -25,6 +25,78 @@ button {
   font: inherit;
 }
 
+.mobile-guard {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 20px;
+  background: #151018;
+  color: #241722;
+}
+
+.mobile-guard__card {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  width: min(100%, 520px);
+  min-height: min(760px, calc(100dvh - 40px));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+.mobile-guard__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(14, 8, 14, 0.58)),
+    linear-gradient(0deg, rgba(255, 246, 250, 0.92), rgba(255, 246, 250, 0));
+}
+
+.mobile-guard__content {
+  position: relative;
+  width: calc(100% - 32px);
+  margin: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 18px;
+  background: rgba(255, 248, 252, 0.88);
+  padding: 24px 22px;
+  box-shadow: 0 18px 40px rgba(95, 34, 64, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.mobile-guard__eyebrow {
+  margin: 0 0 8px;
+  color: #d94f8d;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mobile-guard__title {
+  margin: 0;
+  color: #2a1824;
+  font-size: 25px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.mobile-guard__text,
+.mobile-guard__note {
+  margin: 14px 0 0;
+  color: #5b4655;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.mobile-guard__note {
+  color: #b53675;
+  font-weight: 700;
+}
+
 .game-shell {
   display: grid;
   place-items: center;

@@ -20,6 +20,7 @@ const ENDING_WHITE_FADE_MS = 1400;
 const GUIDE_TRANSITION_MS = 900;
 const GALLERY_UNLOCKED_STORAGE_KEY = "arktis-gallery-unlocked";
 const GALLERY_IMAGES_STORAGE_KEY = "arktis-gallery-images";
+const MOBILE_MEDIA_QUERY = "(max-width: 820px), (pointer: coarse)";
 
 const wait = (ms: number) =>
   new Promise<void>((resolve) => {
@@ -67,6 +68,9 @@ function App() {
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isGuideExiting, setIsGuideExiting] = useState(false);
   const [isEndingImageFading, setIsEndingImageFading] = useState(false);
+  const [isMobileExperience, setIsMobileExperience] = useState(() =>
+    window.matchMedia(MOBILE_MEDIA_QUERY).matches,
+  );
   const [galleryUnlocked, setGalleryUnlocked] = useState(
     readStoredGalleryUnlocked,
   );
@@ -97,6 +101,21 @@ function App() {
 
   const scene = scenes[sceneId];
   const isEndingCreditsScene = sceneId === "ending-credits";
+
+  useEffect(() => {
+    const mobileMediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
+
+    const syncMobileExperience = () => {
+      setIsMobileExperience(mobileMediaQuery.matches);
+    };
+
+    syncMobileExperience();
+    mobileMediaQuery.addEventListener("change", syncMobileExperience);
+
+    return () => {
+      mobileMediaQuery.removeEventListener("change", syncMobileExperience);
+    };
+  }, []);
 
   const speakerName = useMemo(() => {
     if (scene.speakerLabel) {
@@ -738,6 +757,30 @@ function App() {
     seenScenes,
     started,
   ]);
+
+  if (isMobileExperience) {
+    return (
+      <main className="mobile-guard">
+        <section
+          className="mobile-guard__card"
+          style={{ backgroundImage: `url(${titleBackgroundUrl})` }}
+        >
+          <div className="mobile-guard__content">
+            <p className="mobile-guard__eyebrow">두근두근 클럽 Beta</p>
+            <h1 className="mobile-guard__title">PC 웹에서 플레이해주세요</h1>
+            <p className="mobile-guard__text">
+              현재 베타 버전은 PC/노트북 크롬 화면에 맞춰 테스트 중입니다.
+              모바일에서는 이미지와 선택지가 겹치거나 저장/갤러리 확인이
+              불안정할 수 있어요.
+            </p>
+            <p className="mobile-guard__note">
+              베타테스트는 PC 또는 노트북에서 다시 접속해주세요.
+            </p>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="game-shell">

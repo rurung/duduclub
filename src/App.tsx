@@ -919,7 +919,7 @@ function App() {
                 <span className="title-screen__guestbook-icon" aria-hidden="true">
                   ✎
                 </span>
-                <span>방명록</span>
+                <span>의견방</span>
               </button>
             )}
           </section>

@@ -3,6 +3,7 @@ import { CharacterStage } from "./components/CharacterStage";
 import { ChoiceList } from "./components/ChoiceList";
 import { DialogueBox } from "./components/DialogueBox";
 import { Gallery } from "./components/Gallery";
+import { Guestbook } from "./components/Guestbook";
 import { getCharacter, preloadCharacterPortraits } from "./data/characters";
 import { galleryBackgrounds } from "./data/gallery";
 import { initialAffection, scenes } from "./data/scenes";
@@ -85,6 +86,7 @@ function App() {
   const [isStarting, setIsStarting] = useState(false);
   const [titleOpacity, setTitleOpacity] = useState(1);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isGuestbookOpen, setIsGuestbookOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isGuideExiting, setIsGuideExiting] = useState(false);
   const [isEndingImageFading, setIsEndingImageFading] = useState(false);
@@ -487,6 +489,14 @@ function App() {
     setIsGalleryOpen(false);
   };
 
+  const openGuestbook = () => {
+    setIsGuestbookOpen(true);
+  };
+
+  const closeGuestbook = () => {
+    setIsGuestbookOpen(false);
+  };
+
   const continueFromEndingImage = (nextSceneId: string) => {
     if (isEndingImageFading) {
       return;
@@ -836,6 +846,8 @@ function App() {
             collectedImages={collectedGalleryImages}
             onClose={closeGallery}
           />
+        ) : isGuestbookOpen ? (
+          <Guestbook onClose={closeGuestbook} />
         ) : isGuideOpen ? (
           <section
             className="guide-screen"
@@ -897,6 +909,19 @@ function App() {
                 </button>
               )}
             </div>
+            {galleryUnlocked && (
+              <button
+                className="title-screen__guestbook"
+                type="button"
+                onClick={openGuestbook}
+                disabled={isStarting}
+              >
+                <span className="title-screen__guestbook-icon" aria-hidden="true">
+                  ✎
+                </span>
+                <span>방명록</span>
+              </button>
+            )}
           </section>
         ) : (
           <div

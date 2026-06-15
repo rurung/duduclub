@@ -1,0 +1,17 @@
+---
+description: 시나리오·이벤트 수정 시 검증. 사용자가 "스토리!" 또는 "이벤트!"라고 하면 validate-vn-assets 스킬을 적용한다.
+globs: src/data/scenario/**/*.ts,src/data/gallery.ts,src/data/characters.ts,src/assets/**/*
+alwaysApply: false
+---
+
+# 시나리오·이벤트 검증 트리거
+
+| 사용자 말 | 실행 | 스킬 |
+|----------|------|------|
+| **스토리!** | `pnpm run validate:story` | `@validate-vn-assets` |
+| **이벤트!** | `pnpm run validate:events` | `@validate-vn-assets` |
+
+- **스토리!** — `nextSceneId` 끊김, 진행 불가 씬, 중복 id
+- **이벤트!** — 배경/CG/초상 누락, 갤러리 키 불일치
+
+실패 시 커밋·완료 보고 전에 수정한다. 상세: `.cursor/skills/validate-vn-assets/SKILL.md`

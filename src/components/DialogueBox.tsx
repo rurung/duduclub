@@ -1,3 +1,5 @@
+import { playUiClickSound } from "../utils/uiClickSound";
+
 type DialogueBoxProps = {
   speakerName: string;
   text: string;
@@ -39,7 +41,10 @@ export function DialogueBox({
             <button
               className="dialogue-box__back"
               type="button"
-              onClick={onGoBack}
+              onClick={() => {
+                playUiClickSound();
+                onGoBack();
+              }}
             >
               뒤로가기
             </button>
@@ -48,7 +53,10 @@ export function DialogueBox({
             <button
               className="dialogue-box__next"
               type="button"
-              onClick={onContinue}
+              onClick={() => {
+                playUiClickSound();
+                onContinue();
+              }}
             >
               다음
             </button>

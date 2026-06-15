@@ -983,11 +983,10 @@ export const day1Scenes: Record<string, Scene> = {
 
   "ian-rooftop-down": {
     id: "ian-rooftop-down",
-    background: "morning_rooftop",
+    background: "ian_event_1_1",
     speaker: "heroine",
-    character: "heroine",
-    characterExpression: "happy",
     text: "불갈비버거님. 만나서 반갑습니다.",
+    delayBeforeDialogue: 3000,
     nextSceneId: "ian-rooftop-found",
   },
 

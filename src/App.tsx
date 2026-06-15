@@ -13,6 +13,11 @@ import {
   INITIAL_GAME_DATE,
   type GameDate,
 } from "./utils/gameDate";
+import {
+  playRainAmbient,
+  RAIN_AMBIENT_BACKGROUND,
+  stopRainAmbient,
+} from "./utils/ambientRainSound";
 import { preloadBackground, preloadBackgrounds } from "./utils/backgroundAssets";
 import { SCENE_FADE_MS } from "./utils/sceneTransition";
 
@@ -408,6 +413,7 @@ function App() {
   };
 
   const restart = () => {
+    void stopRainAmbient(0);
     setStarted(false);
     setSceneId("intro");
     setAffection(initialAffection);
@@ -608,6 +614,44 @@ function App() {
       return next;
     });
   }, [scene.background, started]);
+
+  useEffect(() => {
+    if (!started || scene.background !== RAIN_AMBIENT_BACKGROUND) {
+      return;
+    }
+
+    const fadeIn = scene.backgroundFade ? (scene.fadeInMs ?? 1200) : SCENE_FADE_MS;
+    const fadeOut = scene.fadeOutMs ?? 1200;
+    const stageFadeDelayMs = 80;
+
+    void playRainAmbient(fadeIn);
+
+    let fadeOutTimer: number | undefined;
+
+    if (scene.backgroundFade && scene.autoAdvanceMs && scene.nextSceneId) {
+      const hold = scene.autoAdvanceMs;
+
+      fadeOutTimer = window.setTimeout(() => {
+        void stopRainAmbient(fadeOut);
+      }, stageFadeDelayMs + fadeIn + hold);
+    }
+
+    return () => {
+      if (fadeOutTimer !== undefined) {
+        window.clearTimeout(fadeOutTimer);
+      }
+
+      void stopRainAmbient(fadeOut);
+    };
+  }, [
+    scene.autoAdvanceMs,
+    scene.background,
+    scene.backgroundFade,
+    scene.fadeInMs,
+    scene.fadeOutMs,
+    scene.nextSceneId,
+    started,
+  ]);
 
   useEffect(() => {
     if (!started) {

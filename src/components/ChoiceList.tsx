@@ -1,4 +1,5 @@
 import type { Choice } from "../types/game";
+import { playUiClickSound } from "../utils/uiClickSound";
 
 type ChoiceListProps = {
   choices: Choice[];
@@ -24,7 +25,10 @@ export function ChoiceList({ choices, onSelect }: ChoiceListProps) {
             className={buttonClassNames}
             key={choice.text}
             type="button"
-            onClick={() => onSelect(choice)}
+            onClick={() => {
+              playUiClickSound();
+              onSelect(choice);
+            }}
           >
             <span className="choice-list__label">
               <span>{choice.text}</span>
